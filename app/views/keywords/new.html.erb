@@ -1,0 +1,14 @@
+<div class="container">
+  <%= render "share/error_message", error_message: @error_message %>
+  <div class="post_wrapper">
+    <div class="ready_content">
+      <h1>complete!</h1>
+      <p>解答用の合言葉を設定してください</p>
+      <%= form_with(model: Keyword.new, local: true, url: keywords_path, remote: true) do |form| %>
+        <p><%= form.text_field :keyword, :class => "form" %><p>
+        <%= form.submit value="決定", :class => "signup-btn"%>
+        <%= form.hidden_field :user_id, :value => session[:user_id] %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <%= render "share/error_message", error_message: @error_message %>
+  <div class="signup-message">
+    <% if @answer %>
+      <%=@artist.name%>クイズ
+      <%=image_tag @artist.image%>
+    <% end %>
+  </div>
+  <div class="show_wrapper">
+    <%= form_with(model: Answer.new, local: true, url: answers_path, remote: true) do |form| %>
+      <p>あなたの名前を入力してください。</p>
+      <p><%= form.text_field :name, :size => "53×1", :class => "form" %></p>
+      <%= form.submit value="決定", :class => "signup-btn" %>
+    <% end %>
+  </div>
+</div>

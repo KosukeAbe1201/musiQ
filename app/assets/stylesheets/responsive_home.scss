@@ -1,0 +1,58 @@
+/* タブレット向けレイアウト */
+@media all and (max-width: 1000px) {
+
+}
+
+@media all and (max-width: 670px) {
+
+  /* 共通 ================================ */
+
+
+  .container{
+    height: 700px;
+  }
+
+  .form{
+    border: solid 1px grey;
+    border-radius: 3px;
+  }
+
+  input[type="submit"]{
+    -webkit-appearance:none;
+  }
+
+
+  /* ヘッダー ================================ */
+
+  .header-center{
+    font-size: 25px;
+  }
+
+  .header-menu{
+    font-size:12px;
+  }
+
+  .flash{
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    background-color: #94618e;
+  }
+
+  /* トップページ ================================ */
+  .top_content{
+    padding: 10px 10px;
+    h2{
+      font-size: 16px;
+      padding: 10px;
+    }
+    p{
+      font-size: 10px;
+    }
+  }
+
+  .top-btns{
+    padding: 20px;
+  }
+
+}

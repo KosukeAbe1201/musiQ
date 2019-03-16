@@ -1,0 +1,99 @@
+/* タブレット向けレイアウト */
+@media all and (max-width: 1000px) {
+
+}
+
+@media all and (max-width: 670px) {
+
+
+
+  .show_content{
+    background-color: #94618e;
+    border-radius: 15px;
+    padding-top: 30px;
+    margin-top: 30px;
+  }
+
+
+  .signup-btn{
+    margin-left: 5px;
+
+  }
+
+  .signup-message{
+    display: none;
+  }
+
+  .decide-btn{
+    margin-left: 70px;
+    margin-bottom: 20px;
+    background-color: #94618e;
+  }
+
+  .qNumber1,.qNumber2,.qNumber3,.qNumber4, .qNumber5{
+    margin: 10px;
+  }
+
+  .ans_num{
+    color: white;
+    font-size: 20px;
+  }
+
+  .question{
+    color:white;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+  }
+
+  .choice{
+    margin: 20px;
+    padding:10px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+  }
+
+
+
+  .active{
+    background-color: #94618e;
+    color: white;
+  }
+
+  .result_content{
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    p{
+      font-size: 12px;
+    }
+  }
+
+  .question_from_answerer{
+    background-color: #94618e;
+    color: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+
+  .question_form{
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .question-btn{
+    text-align: center;
+    margin:20px;
+    width: 200px;
+    height: 30px;
+    background-color: #94618e;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    border-style: none;
+  }
+}

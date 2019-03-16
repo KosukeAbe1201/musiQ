@@ -1,0 +1,17 @@
+/* タブレット向けレイアウト */
+@media all and (max-width: 1000px) {
+
+}
+
+@media all and (max-width: 670px) {
+  .menu_wrapper{
+    flex-flow: column-reverse nowrap;
+  }
+
+  .menu-btn{
+    font-size: 12px;
+    border-style: none;
+  }
+
+}
+

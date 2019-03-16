@@ -1,0 +1,140 @@
+/* 初期化 ================================ */
+* {
+  box-sizing: border-box;
+}
+
+
+/* 共通 ================================ */
+html{
+  letter-spacing:2px;
+}
+
+body {
+  margin: 0;
+  font-family: Lato,YuGothic,"Helvetica Neue", Helvetica, Arial, Sans-Serif;
+}
+
+.container{
+  width:100%;
+  height: 400px;
+  padding:100px 15px;
+  margin:0 auto;
+  background-color: #ffffff;
+
+}
+
+a{
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto
+}
+td {
+  border: solid 1px;
+  padding: 0.5em;
+}
+
+.form-error{
+  color: red;
+  text-align: center;
+  font-size: 12px;
+  padding: 20px;
+}
+
+.flash{
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  background-color: #94618e;
+}
+
+
+/* ヘッダー ================================ */
+header{
+  position: fixed;
+  top:0;
+  z-index: 10;
+  height:70px;
+  width:100%;
+  background-color: #94618e;
+}
+
+.header-center{
+  text-align: right;
+  font-size: 30px;
+  color: white;
+}
+
+.header-menu{
+  height:120px;
+  line-height:35px;
+  font-size:15px;
+  text-align: right;
+  display: none;
+  background-color: #94618e;
+  padding: 0 20px;
+}
+
+.menu-btn1{
+  margin:20px ;
+  cursor:pointer;
+  font-size: 30px;
+  color:white;
+  text-align: right;
+}
+
+/* トップページ ================================ */
+
+.top_content{
+  padding: 100px 10px;
+  h1{
+    padding-bottom: 230px;
+  }
+  h2{
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  p{
+    color: grey;
+    text-align: center;
+  }
+}
+
+.top-btns{
+  padding: 40px;
+  text-align: center;
+}
+
+.img_list{
+  text-align: center;
+}
+
+.image1{
+  margin: 30px;
+  width: 200px;
+}
+
+.image2{
+  margin: 30px;
+  width: 193px;
+}
+
+.image3{
+  margin: 30px;
+  width: 189px;
+}
+
+.copyright{
+  font-size: 12px;
+  padding: 20px;
+  text-align: center;
+}

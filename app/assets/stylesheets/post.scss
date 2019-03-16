@@ -1,0 +1,165 @@
+.post_wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}
+
+.post_content{
+  text-align: center;
+  background-color: #94618e;
+  border-radius: 15px;
+  padding: 20px;
+
+}
+
+.qNumber1,.qNumber2,.qNumber3,.qNumber4, .qNumber5{
+  padding:.5em 0;
+  text-align: left;
+  color: white;
+  font-size: 30px;
+  letter-spacing:3px;
+  border-top:3px solid #dadada;
+  position: relative;
+  line-height:1.4em;
+}
+
+.qNumber1::after,.qNumber2::after,.qNumber3::after,.qNumber4::after,.qNumber5::after{
+  content:"";
+  display:block;
+  border-bottom:3px solid #F06292;
+  position:absolute;
+  bottom:75px;
+  margin-bottom:-3px;
+}
+
+.qNumber1::after{
+  width: 20%;
+}
+
+.qNumber2::after{
+  width: 40%;
+}
+
+.qNumber3::after{
+  width: 60%;
+}
+
+.qNumber4::after{
+  width: 80%;
+}
+
+.qNumber5::after {
+  width: 100%;
+}
+
+
+
+
+
+.question{
+  padding:10px;
+}
+
+.ans{
+  padding:10px;
+}
+
+#num{
+  color: white;
+  font-size: 30px;
+}
+
+.textarea{
+  border-radius: 5px;
+  border: white;
+}
+
+.radio-btn{
+
+  width: 20px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.decide-btn{
+  border-radius: 5px;
+  width: 200px;
+  height: 30px;
+  font-size: 15px;
+  border-style: none;
+  background-color: #F06292;
+  color: white;
+  cursor: pointer;
+}
+
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+label {
+  display:inline;
+  cursor:pointer;
+}
+$inputColor: #ffffff;
+$inputChecked: #F06292;
+input[type=checkbox] {
+  display:none;
+
+  + label {
+    &:before {
+      display:inline-block;
+      width:16px;
+      font-family: 'FontAwesome';
+      content:"\f096";
+      font-size:14px;
+      color:$inputColor;
+    }
+  }
+  &:checked + label {
+    &:before {
+      content:"\f046";
+      color:$inputChecked;
+    }
+  }
+}
+input[type=radio] {
+  display:none;
+
+  + label {
+    &:before {
+      display:inline-block;
+      width:50px;
+      font-family: 'FontAwesome';
+      content:"\f10c";
+      font-size:30px;
+      color:$inputColor;
+    }
+  }
+  &:checked + label {
+    &:before {
+      content:"\f192";
+      color:$inputChecked;
+    }
+  }
+}
+
+h1{
+  text-align: center;
+  padding: 10px;
+  border-bottom:3px solid #94618e;
+}
+p{
+  text-align: center;
+}
+
+.key-for-share{
+  padding:0;
+  text-align: left;
+  font-size: 20px;
+  letter-spacing:3px;
+  border-bottom:3px solid #94618e;
+  position: relative;
+  line-height:1.4em;
+}
+
+.link{
+  padding:4px;
+  text-align: center;
+}

@@ -1,0 +1,55 @@
+.user_wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}
+
+.menu_wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}
+
+.user_content{
+  text-align: center;
+  background-color: #000000;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+p{
+  font-size: 13px;
+  text-align: center;
+}
+
+.signup-message{
+  text-align: center;
+  padding:.5em 0;
+  color: #94618e;
+  font-size: 20px;
+  letter-spacing:5px;
+  border-bottom:3px solid #94618e;
+  position: relative;
+  line-height:1.4em;
+}
+
+.signup-btn{
+  border-radius: 5px;
+  width: 330px;
+  height: 30px;
+  font-size: 15px;
+  border-style: none;
+  background-color: #F06292;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-btn{
+  text-align: center;
+  width: 150px;
+  padding: 10px;
+  margin: 5px;
+  color: white;
+  background-color: #F06292;
+  border-radius: 5px;
+}

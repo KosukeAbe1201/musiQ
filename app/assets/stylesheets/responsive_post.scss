@@ -1,0 +1,29 @@
+/* タブレット向けレイアウト */
+@media all and (max-width: 1000px) {
+
+}
+
+@media all and (max-width: 670px) {
+  .post_wrapper{
+  width: 60%;
+    margin: 0;
+    padding: 0;
+  }
+  .post_content{
+    width: 400px;
+    margin-top: -40px;
+    margin-left: 130px;
+    padding-left: 20px;
+    border-radius: 0;
+  }
+
+  .ready_content{
+    margin-left: 130px;
+  }
+
+  .link{
+    margin-left: 130px;
+  }
+
+
+}

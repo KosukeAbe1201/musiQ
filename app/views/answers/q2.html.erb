@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="signup-message">
+    Quiz
+  </div>
+  <div class="show_wrapper">
+    <div class="show_content">
+      <div class="qNumber2">
+           Question 2
+      </div>
+      <div class="question">
+        <audio src="<%=@post.question%>" controls>
+        </audio>
+      </div>
+      <%= form_with(model: Answer.new, local: true, url: update_path, remote: true) do |form| %>
+        <label>
+          <div class="choice">
+            <%= form.radio_button :chosen_song, @post.answer1 %> <%= @post.answer1 %>
+          </div>
+        </label>
+        <label>
+          <div class="choice">
+            <%= form.radio_button :chosen_song, @post.answer2 %> <%= @post.answer2 %>
+          </div>
+        </label>
+        <label>
+          <div class="choice">
+            <%= form.radio_button :chosen_song, @post.answer3 %> <%= @post.answer3 %>
+          </div>
+        </label>
+        <label>
+          <div class="choice">
+            <%= form.radio_button :chosen_song, @post.answer4 %> <%= @post.answer4 %>
+          </div>
+        </label>
+        <%= form.hidden_field :question_num, :value => "2" %>
+        <%= form.hidden_field :user_id, :value => session[:answerer_id] %>
+        <%= form.submit value="NEXT QUESTION", :class => "decide-btn"%>
+      <% end %>
+    </div>
+  </div>
+</div>

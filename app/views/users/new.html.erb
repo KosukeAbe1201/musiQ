@@ -1,0 +1,14 @@
+<div class="container">
+  <% if @error_message %>
+    <div class="form-error">
+      <%= @error_message %>
+    </div>
+  <% end %>
+  <div class="user_wrapper">
+    <%= form_with(model: User.new, local: true, url: users_path, remote: true) do |form| %>
+      <p><%= form.text_field :name, :placeholder => "名前", :class => "form", :size => "40x1", :value => @user.name %></p>
+      <p><%= form.password_field :password, :placeholder => "パスワード", :class => "form", :size => "40x1", :value => @user.password %></p>
+      <%= form.submit value="新規登録", :class => "signup-btn"%>
+    <% end %>
+  </div>
+</div>
