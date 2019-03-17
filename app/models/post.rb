@@ -9,14 +9,14 @@ class Post < ApplicationRecord
   scope :return_posts_num, ->(params) { where(user_id: params).count }
 
   def self.search_songs(artist)
-      ITunesSearchAPI.search(
-          :term    => artist,
-          :country => "jp",
-          :media   => 'music',
-          :lang    => 'ja_jp',
-          :attribute => "artistTerm",
-          :limit  => '200'
-          )
+    ITunesSearchAPI.search(
+        :term    => artist,
+        :country => "jp",
+        :media   => 'music',
+        :lang    => 'ja_jp',
+        :attribute => "artistTerm",
+        :limit  => '200'
+        )
   end
 
   def self.get_answers(correct_song, all_songs)

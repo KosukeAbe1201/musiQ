@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  MAX_QUIZZES_NUM = "5"
+
   def new
     @artist = Answer.search_artist(session[:answerer_id])
   end
@@ -46,7 +48,7 @@ class AnswersController < ApplicationController
     else
       flash[:notice] = "不正解です。正解は#{post.correct_song}でした"
     end
-    if params[:answer][:question_num] == "5"
+    if params[:answer][:question_num] == MAX_QUIZZES_NUM
       respond_to do |format|
         format.html { redirect_to("/result") }
         format.js

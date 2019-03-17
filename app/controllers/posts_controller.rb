@@ -1,12 +1,15 @@
 class PostsController < ApplicationController
   before_action :authenticate_user
   before_action :forbid_make_quiz, except: [:destroy]
+
+  MINIMUM_SONGS_NUM = 20
+
   def new
   end
 
   def create
     all_songs = Post.search_songs(params[:post][:artist])
-    if all_songs.size <= 20
+    if all_songs.size <= MINIMUM_SONGS_NUM
       flash[:notice] = "クイズが作れませんでした。"
       render ("home/top")
       return

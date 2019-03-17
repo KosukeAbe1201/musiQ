@@ -1,5 +1,4 @@
 class KeywordsController < ApplicationController
-
   def create
     keyword = @current_user.build_keyword(keyword_param)
     if keyword.save

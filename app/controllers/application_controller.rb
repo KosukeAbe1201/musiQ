@@ -2,12 +2,14 @@ class ApplicationController < ActionController::Base
   before_action :set_current_user
   before_action :set_posts_counter
 
+  QUIZ_COUNT = 5
+
   def set_posts_counter
     @post_counter = Post.return_posts_num(session[:user_id])
   end
 
   def forbid_make_quiz
-    if @post_counter >= 5
+    if @post_counter >= QUIZ_COUNT
       redirect_to root_path
     end
   end
