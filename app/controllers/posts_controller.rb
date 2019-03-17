@@ -14,22 +14,22 @@ class PostsController < ApplicationController
     5.times do |i|
       correct_song = all_songs.sample
       answers = Post.get_answers(correct_song, all_songs)
-      post = Post.new(question: correct_song["previewUrl"],
-                      question_num: i+1,
-                      answer1: answers[0]["trackName"],
-                      answer2: answers[1]["trackName"],
-                      answer3: answers[2]["trackName"],
-                      answer4: answers[3]["trackName"],
-                      user_id: session[:user_id],
-                      correct_song: correct_song["trackName"]
-                      )
-      post.save
-      song = all_songs.sample
-      artist = Artist.new(name: song["artistName"],
-                          image: song["artworkUrl100"],
-                          user_id: session[:user_id])
-      artist.save
+      post = @current_user.posts.create(
+        question: correct_song["previewUrl"],
+        question_num: i+1,
+        answer1: answers[0]["trackName"],
+        answer2: answers[1]["trackName"],
+        answer3: answers[2]["trackName"],
+        answer4: answers[3]["trackName"],
+        correct_song: correct_song["trackName"]
+      )
     end
+    song = all_songs.sample
+    artist = @current_user.create_artist(
+      name: song["artistName"],
+      image: song["artworkUrl100"],
+      user_id: session[:user_id]
+    )
     respond_to do |format|
         format.html { redirect_to("/keywords/new") }
         format.js

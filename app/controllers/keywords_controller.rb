@@ -1,7 +1,7 @@
 class KeywordsController < ApplicationController
 
   def create
-    keyword = Keyword.new(keyword_param)
+    keyword = @current_user.build_keyword(keyword_param)
     if keyword.save
       respond_to do |format|
         format.html { redirect_to("/share") }
@@ -37,7 +37,6 @@ class KeywordsController < ApplicationController
   def keyword_param
     params.require(:keyword).permit(
       :keyword,
-      :user_id
     )
   end
 end
