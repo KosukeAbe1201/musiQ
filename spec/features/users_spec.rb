@@ -27,7 +27,7 @@ RSpec.feature "Users", type: :feature do
     click_link "ログイン"
     fill_in "name", with: user.password
     fill_in "password", with: user.name
-    click_button "ログインする"
+    click_button "ログイン"
     expect(page).to have_content "メールアドレスまたはパスワードが間違っています"
   end
 end

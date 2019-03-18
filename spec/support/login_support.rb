@@ -11,7 +11,7 @@ module LoginSupport
     click_link "ログイン"
     fill_in "name", with: user.name
     fill_in "password", with: user.password
-    click_button "ログインする"
+    click_button "ログイン"
   end
 
   def logout
