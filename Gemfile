@@ -16,6 +16,9 @@ gem 'bcrypt', '3.1.11'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.6.0'
+  gem "factory_bot_rails", "~> 4.10.0"
+  gem 'spring-commands-rspec'
 end
 
 group :development do
@@ -26,7 +29,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '~> 2.15.2'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
