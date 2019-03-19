@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
   scope :return_posts_num, ->(params) { where(user_id: params).count }
 
-  def self.search_songs(artist)
+  def self.fetch_songs_from_itunes_api(artist)
     ITunesSearchAPI.search(
         :term    => artist,
         :country => "jp",

@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    all_songs = Post.search_songs(params[:post][:artist])
+    all_songs = Post.fetch_songs_from_itunes_api(params[:post][:artist])
 
     if all_songs.size <= MINIMUM_SONGS_NUM
       flash[:notice] = "クイズが作れませんでした。"
