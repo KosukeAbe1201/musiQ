@@ -10,9 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def forbid_make_quiz
-    if @post_counter >= MAX_POST_COUNTER
-      redirect_to_with_ajax(root_path)
-    end
+    redirect_to_with_ajax(root_path) if @post_counter >= MAX_POST_COUNTER
   end
 
   def set_current_user
