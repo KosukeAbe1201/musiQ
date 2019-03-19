@@ -40,12 +40,15 @@ class AnswersController < ApplicationController
   def update
     post = Answer.search_post(params[:answer][:question_num], session[:answerer_id])
     answer = Answer.find_answer_by_name(session[:answerer])
-    if post.correct_song == params[:answer][:chosen_song]
+    
+    is_correct_song = post.correct_song == params[:answer][:chosen_song]
+    if is_correct_song
       Answer.update_correct_num(session[:answerer], answer)
       flash[:notice] = "正解です！"
     else
       flash[:notice] = "不正解です。正解は#{post.correct_song}でした"
     end
+
     if params[:answer][:question_num] == MAX_QUIZZES_NUM
       redirect_to_with_ajax("/result")
     else
