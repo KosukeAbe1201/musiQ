@@ -1,10 +1,6 @@
 <div class="container">
   <%= render "share/error_message", error_message: @error_message %>
   <div class="user_wrapper">
-    <%= form_with(model: @users, local: true, url: sessions_path, remote: true) do |form| %>
-      <p><%= form.text_field :name, :placeholder => "名前", :class => "form", :size => "40x1" %></p>
-      <p><%= form.password_field :password, :placeholder => "パスワード", :class => "form", :size => "40x1" %></p>
-      <%= form.submit value="ログイン", :class => "signup-btn"%>
-    <% end %>
+    <%= render "share/auth_form", model: @users, path: sessions_path, button_value: "ログイン" %>
   </div>
 </div>

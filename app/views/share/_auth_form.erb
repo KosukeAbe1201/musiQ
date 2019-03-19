@@ -1,0 +1,5 @@
+<%= form_with(model: model, local: true, url: path, remote: true) do |form| %>
+  <p><%= form.text_field :name, :placeholder => "名前", :class => "form", :size => "40x1" %></p>
+  <p><%= form.password_field :password, :placeholder => "パスワード", :class => "form", :size => "40x1" %></p>
+  <%= form.submit value=button_value, :class => "signup-btn"%>
+<% end %>

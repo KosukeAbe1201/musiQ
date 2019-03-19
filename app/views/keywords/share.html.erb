@@ -3,20 +3,7 @@
   <p>SNSのフレンドにクイズを共有しましょう！</p>
   <div class="post_wrapper">
     <div class="link">
-      <div class="twitter">
-        <a href="https://twitter.com/share" class="twitter-share-button"
-        data-url="https://musiqqq.herokuapp.com/keyword"
-        data-via=""
-        data-text="<%=@artist.name %>の曲クイズに答えてみませんか？秘密の合言葉は<%=@keyword.keyword %>です。 #musiQ"
-        data-related=""
-        data-count=""
-        data-lang=""
-        data-counturl=""
-        data-hashtags=""
-        data-size="large"
-        >ツイート</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
+      <%= render "twitter_data", artist: @artist, keyword: @keyword %>
     </div>
   </div>
 </div>
