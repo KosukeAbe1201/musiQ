@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include ApplicationHelper
   include SessionsHelper
   def new
     @user = User.new
@@ -8,10 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     if user && user.authenticate(params[:password])
       log_in(user)
-      respond_to do |format|
-        format.html { redirect_to new_post_path }
-        format.js
-      end
+      redirect_to_with_ajax(new_post_path)
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       render("sessions/new")

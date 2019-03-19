@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
   before_action :set_current_user
   before_action :set_posts_counter
 
@@ -10,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def forbid_make_quiz
     if @post_counter >= QUIZ_COUNT
-      redirect_to root_path
+      redirect_to_with_ajax(root_path)
     end
   end
 
@@ -21,11 +22,11 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     if @current_user.nil?
       flash[:notice] = "ログインが必要です"
-      redirect_to new_session_path
+      redirect_to_with_ajax(new_session_path)
     end
   end
 
   def forbid_login_user
-    redirect_to root_path if @current_user
+    redirect_to_with_ajax(root_path) if @current_user
   end
 end

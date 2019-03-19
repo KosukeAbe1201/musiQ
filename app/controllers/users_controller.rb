@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
   before_action :forbid_login_user, except: [:show]
 
   def new
@@ -10,10 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "登録を完了しました"
       session[:user_id] = @user.id
-      respond_to do |format|
-        format.html { redirect_to new_post_path }
-        format.js
-      end
+      redirect_to_with_ajax(new_post_path)
     else
       @error_message = "名前が既に使用されている、またはパスワードに不備があります。パスワードは8文字以上で入力してください。"
       render("users/new")

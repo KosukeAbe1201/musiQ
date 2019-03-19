@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  include ApplicationHelper
   MAX_QUIZZES_NUM = "5"
 
   def new
@@ -9,10 +10,7 @@ class AnswersController < ApplicationController
     answer = Answer.new(answer_params)
     if answer.save
       session[:answerer] = answer.name
-      respond_to do |format|
-        format.html { redirect_to("/question1") }
-        format.js
-      end
+      redirect_to_with_ajax("/question1")
     else
       @error_message = "既に使用されている名前です"
       render("answers/new")
@@ -49,15 +47,9 @@ class AnswersController < ApplicationController
       flash[:notice] = "不正解です。正解は#{post.correct_song}でした"
     end
     if params[:answer][:question_num] == MAX_QUIZZES_NUM
-      respond_to do |format|
-        format.html { redirect_to("/result") }
-        format.js
-      end
+      redirect_to_with_ajax("/result")
     else
-      respond_to do |format|
-        format.html { redirect_to("/question#{params[:answer][:question_num].to_i + 1}") }
-        format.js
-      end
+      redirect_to_with_ajax("/question#{params[:answer][:question_num].to_i + 1}")
     end
   end
 

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include ApplicationHelper
   before_action :authenticate_user
   before_action :forbid_make_quiz, except: [:destroy]
 
@@ -33,10 +34,7 @@ class PostsController < ApplicationController
       image: song["artworkUrl100"],
       user_id: session[:user_id]
     )
-    respond_to do |format|
-        format.html { redirect_to("/keywords/new") }
-        format.js
-    end
+    redirect_to_with_ajax("/keywords/new")
   end
 
   def destroy
