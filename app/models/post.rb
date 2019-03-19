@@ -19,7 +19,7 @@ class Post < ApplicationRecord
         )
   end
 
-  def self.get_answers(correct_song, all_songs)
+  def self.choose_four_songs(correct_song, all_songs)
     arr = 3.times.map do
       song = all_songs.sample
       all_songs.delete(song)
