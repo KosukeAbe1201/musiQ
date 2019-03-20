@@ -6,7 +6,7 @@
       <p>普段から聴いているアーティストでも、意外と知らない曲があるかも？</p>
       <p>クイズは何度でもつくれます。いろんなアーティストのクイズをつくって、友達にシェアしましょう！</p>
       <div class = "top-btns">
-      <%=link_to "1分でクイズをつくる", {:controller => 'users', :action => 'new'}, {:class => "menu-btn"}%>
+        <%=link_to "1分でクイズをつくる", {:controller => 'users', :action => 'new'}, {:class => "menu-btn"}%>
       </div>
       <h1></h1>
       <h2>あそび方</h2>
@@ -24,5 +24,8 @@
   </div>
   <div class="copyright">
     © 2019 musiQ
+    <% if @current_user %>
+      <%=link_to "退会する", user_path(@current_user), :method => :delete, :confirm => 'Are you sure?'%>
+    <% end %>
   </div>
 </div>

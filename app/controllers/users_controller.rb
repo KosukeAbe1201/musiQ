@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include ApplicationHelper
-  before_action :forbid_login_user, except: [:show]
+  before_action :forbid_login_user, except: [:destroy]
 
   def new
     @user = User.new
@@ -16,6 +16,11 @@ class UsersController < ApplicationController
       @error_message = "名前が既に使用されている、またはパスワードに不備があります。パスワードは8文字以上で入力してください。"
       render("users/new")
     end
+  end
+
+  def destroy
+    User.find(@current_user.id).destroy
+    redirect_to root_path
   end
 
   private
