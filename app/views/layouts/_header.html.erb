@@ -1,19 +1,19 @@
 <header>
   <div class="header-center">
-    <%= link_to("musiQ",{:controller => 'home', :action => 'top'}, :style=>"font-family: Lato,YuGothic, Helvetica Neue , Helvetica, Arial, Sans-Serif; text-decoration: none; color:white;") %>
+    <%= link_to("musiQ", root_path, :style=>"font-family: Lato,YuGothic, Helvetica Neue , Helvetica, Arial, Sans-Serif; text-decoration: none; color:white;") %>
     <i class="fas fa-bars menu-btn1"></i>
   </div>
   <div class="header-menu">
     <ul>
       <%if current_user == nil %>
         <li>
-          <%= link_to("新規登録",{:controller => 'users', :action => 'new'}, :class=>"header-btn",:style=>"text-decoration: none; color:white; ")%>
+          <%= link_to("新規登録", new_user_path, :class=>"header-btn",:style=>"text-decoration: none; color:white; ")%>
         </li>
         <li>
-          <%= link_to("ログイン",{:controller => 'sessions', :action => 'new'}, :style=>" text-decoration: none; color:white;") %>
+          <%= link_to("ログイン", new_session_path, :style=>" text-decoration: none; color:white;") %>
         </li>
         <li>
-          <%= link_to("答えてあそぶ",{:controller => 'keywords', :action => 'top'}, :style=>"text-decoration: none; color:white;") %>
+          <%= link_to("答えてあそぶ", keyword_path, :style=>"text-decoration: none; color:white;") %>
         </li>
       <%end %>
       <%if current_user != nil %>
@@ -26,7 +26,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to("答えてあそぶ",{:controller => 'keywords', :action => 'top'}, :style=>"text-decoration: none; color:white;") %>
+          <%= link_to("答えてあそぶ", keyword_path, :style=>"text-decoration: none; color:white;") %>
         </li>
         <li>
           <%= link_to("ログアウト", session_path, method: :delete, :style=> "text-decoration: none; color:white;") %>
