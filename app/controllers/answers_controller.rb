@@ -40,7 +40,7 @@ class AnswersController < ApplicationController
   def update
     post = Answer.search_post(params[:answer][:question_num], session[:answerer_id])
     answer = Answer.find_answer_by_name(session[:answerer])
-    
+
     is_correct_song = post.correct_song == params[:answer][:chosen_song]
     if is_correct_song
       Answer.update_correct_num(session[:answerer], answer)
@@ -61,6 +61,7 @@ class AnswersController < ApplicationController
     @keyword = Answer.search_keyword(session[:answerer_id])
     @message = Answer.search_message(@answer.correct)
     @artist = Answer.search_artist(session[:answerer_id])
+    session[:answerer_id] = nil
   end
 
   private
