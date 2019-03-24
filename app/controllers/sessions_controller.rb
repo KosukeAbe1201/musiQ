@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to_with_ajax(new_post_path)
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
-      render("sessions/new")
+      render :new
     end
   end
 

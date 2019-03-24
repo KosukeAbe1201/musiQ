@@ -13,7 +13,7 @@ class AnswersController < ApplicationController
       redirect_to_with_ajax("/question1")
     else
       @error_message = "既に使用されている名前です"
-      render("answers/new")
+      render :new
     end
   end
 

@@ -42,6 +42,6 @@ class PostsController < ApplicationController
 
   def destroy
     Post.delete_all_questions(session[:user_id])
-    render("new")
+    render :new
   end
 end

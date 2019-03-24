@@ -6,7 +6,7 @@ class KeywordsController < ApplicationController
       redirect_to_with_ajax("/share")
     else
       @error_message = "合言葉が入力されていない、または既に使用されています"
-      render("keywords/new")
+      render :new
     end
   end
 
@@ -22,7 +22,7 @@ class KeywordsController < ApplicationController
       redirect_to_with_ajax("/answers/new")
     else
       @error_message = "合言葉が存在しません"
-      render("top")
+      render :top
     end
   end
 

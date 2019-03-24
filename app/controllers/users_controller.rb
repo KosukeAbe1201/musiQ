@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       redirect_to_with_ajax(new_post_path)
     else
       @error_message = "名前が既に使用されている、またはパスワードに不備があります。パスワードは8文字以上で入力してください。"
-      render("users/new")
+      render :new
     end
   end
 
