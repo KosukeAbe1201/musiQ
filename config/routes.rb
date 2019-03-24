@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :new]
   resource :session, only: [:destroy]
   resources :keywords, only: [:create, :new]
-  resources :answers, only: [:new, :create]
+  resources :answers, param: :question_num
   resources :users, only: [:create, :new, :destroy]
   resources :posts, only: [:new, :create]
 end

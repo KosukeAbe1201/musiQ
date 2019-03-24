@@ -2,7 +2,10 @@
   <%= render "share/error_message", error_message: @error_message %>
   <div class="user_wrapper">
     <%= form_with(model: Post.new, local: true, url: posts_path, remote: true) do |form| %>
-      <p><%= form.text_field :artist, :placeholder => "アーティスト名を入力", :class => "form", :size => "40x5"%></p>
+      <p><%= form.text_field :artist, :placeholder => "アーティスト名を入力", :class => "form", :size => "40x5"%>
+      <%= form.fields_for @question do |child_form| %>
+        <%= child_form.select :num, [["出題数", 5], ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]], class:"form-control" %></p>
+      <% end %>
       <%= form.hidden_field :user_id, :value => session[:user_id] %>
       <%= form.submit value="クイズ生成", :class => "signup-btn", data: { disable_with: "作成中..." }%>
     <% end %>

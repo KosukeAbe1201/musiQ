@@ -4,39 +4,39 @@
   </div>
   <div class="show_wrapper">
     <div class="show_content">
-      <div class="qNumber1">
-        Question <%= question_num %>
+      <div class="qNumber5">
+        Question <%= @num - 1 %>
       </div>
       <div class="question">
-        <audio src="<%=post.question%>" controls>
+        <audio src="<%=@post.question%>" controls>
         </audio>
       </div>
       <%= form_with(model: Answer.new, local: true, url: update_path, remote: true) do |form| %>
         <label>
           <div class="choice">
-            <%= form.radio_button :chosen_song, post.answer1 %>
-            <%= post.answer1 %>
+            <%= form.radio_button :chosen_song, @post.answer1 %>
+            <%= @post.answer1 %>
           </div>
         </label>
         <label>
           <div class="choice">
-            <%= form.radio_button :chosen_song, post.answer2 %>
-            <%= post.answer2 %>
+            <%= form.radio_button :chosen_song, @post.answer2 %>
+            <%= @post.answer2 %>
           </div>
         </label>
         <label>
           <div class="choice">
-            <%= form.radio_button :chosen_song, post.answer3 %>
-            <%= post.answer3 %>
+            <%= form.radio_button :chosen_song, @post.answer3 %>
+            <%= @post.answer3 %>
           </div>
         </label>
         <label>
           <div class="choice">
-            <%= form.radio_button :chosen_song, post.answer4 %>
-            <%= post.answer4 %>
+            <%= form.radio_button :chosen_song, @post.answer4 %>
+            <%= @post.answer4 %>
           </div>
         </label>
-        <%= form.hidden_field :question_num, :value => question_num %>
+        <%= form.hidden_field :question_num, :value => @num %>
         <%= form.hidden_field :user_id, :value => session[:answerer_id] %>
         <%= form.submit value="NEXT QUESTION", :class => "decide-btn"%>
       <% end %>

@@ -4,9 +4,9 @@ class PostsController < ApplicationController
   before_action :forbid_make_quiz, except: [:destroy]
 
   MINIMUM_SONGS_NUM = 20
-  QUIZZES_NUM = 5
 
   def new
+    @question = Question.new
   end
 
   def create
@@ -18,7 +18,9 @@ class PostsController < ApplicationController
       return
     end
 
-    QUIZZES_NUM.times do |i|
+    @question = @current_user.create_question(num: params[:post][:question][:num])
+
+    @question.num.times do |i|
       correct_song = all_songs.sample
       chosen_songs = Post.choose_four_songs(correct_song, all_songs)
       post = @current_user.posts.create(
@@ -41,6 +43,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @question = Question.new
     Post.delete_all_questions(session[:user_id])
     render :new
   end

@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_one :keyword, dependent: :destroy
   has_one :artist, dependent: :destroy
+  has_one :question, dependent: :destroy
 end
