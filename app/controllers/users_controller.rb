@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(@current_user.id).destroy
-    redirect_to root_path
+    redirect_to_with_ajax(root_path)
   end
 
   private

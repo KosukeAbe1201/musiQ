@@ -28,6 +28,7 @@ class AnswersController < ApplicationController
     post = Answer.search_post(now_question_num, session[:answerer_id])
     answer = Answer.find_answer_by_name(session[:answerer])
 
+    # 回答が正しいかどうか判定する
     is_correct_song = post.correct_song == params[:answer][:chosen_song]
     if is_correct_song
       Answer.update_correct_num(session[:answerer], answer)
@@ -36,13 +37,12 @@ class AnswersController < ApplicationController
       flash[:notice] = "不正解です。正解は#{post.correct_song}でした"
     end
 
+    #最後の設問であれば結果画面に、それ以外であれば次の問題画面に遷移する
     question = Question.find_by(user_id: session[:answerer_id])
-    max_quiz_num = question.num
-
-    if now_question_num == max_quiz_num
+    if now_question_num == question.num
       redirect_to_with_ajax(result_answers_path)
     else
-      redirect_to answer_path(params[:answer][:question_num])
+      redirect_to_with_ajax(answer_path(params[:answer][:question_num]))
     end
   end
 
