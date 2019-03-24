@@ -23,7 +23,7 @@ class AnswersController < ApplicationController
     end
   end
 
-  def update
+  def next_question
     now_question_num = params[:answer][:question_num].to_i - 1
     post = Answer.search_post(now_question_num, session[:answerer_id])
     answer = Answer.find_answer_by_name(session[:answerer])
@@ -40,7 +40,7 @@ class AnswersController < ApplicationController
     max_quiz_num = question.num
 
     if now_question_num == max_quiz_num
-      redirect_to_with_ajax("/result")
+      redirect_to_with_ajax(result_answers_path)
     else
       redirect_to answer_path(params[:answer][:question_num])
     end

@@ -39,7 +39,7 @@ class PostsController < ApplicationController
       name: song["artistName"],
       image: song["artworkUrl100"],
     )
-    redirect_to_with_ajax("/keywords/new")
+    redirect_to_with_ajax(new_keyword_path)
   end
 
   def destroy

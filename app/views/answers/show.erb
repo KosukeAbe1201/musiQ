@@ -11,7 +11,7 @@
         <audio src="<%=@post.question%>" controls>
         </audio>
       </div>
-      <%= form_with(model: Answer.new, local: true, url: update_path, remote: true) do |form| %>
+      <%= form_with(model: Answer.new, local: true, url: next_question_answers_path, remote: true) do |form| %>
         <label>
           <div class="choice">
             <%= form.radio_button :chosen_song, @post.answer1 %>

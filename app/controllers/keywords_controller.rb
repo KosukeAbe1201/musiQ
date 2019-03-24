@@ -3,7 +3,7 @@ class KeywordsController < ApplicationController
   def create
     keyword = @current_user.build_keyword(keyword_param)
     if keyword.save
-      redirect_to_with_ajax("/share")
+      redirect_to_with_ajax(share_keywords_path)
     else
       @error_message = "合言葉が入力されていない、または既に使用されています"
       render :new
@@ -19,7 +19,7 @@ class KeywordsController < ApplicationController
     keyword = Keyword.find_by(keyword: params[:keyword])
     if keyword
       session[:answerer_id] = keyword.user_id
-      redirect_to_with_ajax("/answers/new")
+      redirect_to_with_ajax(new_answer_path)
     else
       @error_message = "合言葉が存在しません"
       render :top
