@@ -4,7 +4,7 @@
     <%= form_with(model: Post.new, local: true, url: posts_path, remote: true) do |form| %>
       <p><%= form.text_field :artist, :placeholder => "アーティスト名を入力", :class => "form", :size => "40x5"%></p>
       <%= form.hidden_field :user_id, :value => session[:user_id] %>
-      <%= form.submit value="クイズ生成", :class => "signup-btn"%>
+      <%= form.submit value="クイズ生成", :class => "signup-btn", data: { disable_with: "作成中..." }%>
     <% end %>
   </div>
 </div>
