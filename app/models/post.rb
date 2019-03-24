@@ -21,7 +21,7 @@ class Post < ApplicationRecord
         )
   end
 
-  def self.choose_four_songs(correct_song, all_songs)
+  def self.choose_four_songs(correct_song, all_songs)　#ダミーの3曲と正解の1曲を含む配列を返す
     song_list = DUMMY_SONGS_NUM.times.map do
       dummy_song = all_songs.sample
       all_songs.delete(dummy_song)
