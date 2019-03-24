@@ -8,6 +8,8 @@ class Post < ApplicationRecord
 
   scope :return_posts_num, ->(params) { where(user_id: params).count }
 
+  DUMMY_SONGS_NUM = 3
+
   def self.fetch_songs_from_itunes_api(artist)
     ITunesSearchAPI.search(
         :term    => artist,
@@ -20,13 +22,13 @@ class Post < ApplicationRecord
   end
 
   def self.choose_four_songs(correct_song, all_songs)
-    arr = 3.times.map do
-      song = all_songs.sample
-      all_songs.delete(song)
-      song
+    song_list = DUMMY_SONGS_NUM.times.map do
+      dummy_song = all_songs.sample
+      all_songs.delete(dummy_song)
+      dummy_song
     end
-    arr << correct_song
-    arr.shuffle
+    song_list << correct_song
+    song_list.shuffle
   end
 
   def self.delete_all_questions(user_id)
