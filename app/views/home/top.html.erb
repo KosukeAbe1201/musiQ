@@ -5,10 +5,16 @@
       <p>お好みのアーティスト名を入力するだけで、曲当てクイズが生成されます。</p>
       <p>普段から聴いているアーティストでも、意外と知らない曲があるかも？</p>
       <p>お気に入りのアーティストのクイズをつくって、友達にシェアしましょう！</p>
-      <div class = "top-btns">
-        <%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
-        <%=link_to "1分でクイズをつくる", new_user_path, {:class => "menu-btn"}%>
-      </div>
+      <% unless @current_user %>
+        <div class = "top-btns">
+          <%= react_component("Modall",
+          buttonName: '遊んでみる',
+          content1: '新規登録',
+          url1: new_user_path,
+          content2: 'クイズに答える',
+          url2: top_keywords_path) %>
+        </div>
+      <% end %>
       <h1></h1>
       <h2>あそび方</h2>
       <div class="img_list">
